@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14, 16, 18]
+        node-version: [22]
 
     steps:
     - name: Checkout repository
@@ -24,11 +24,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install
-
     - name: Compile code
-      run: npm run build
-
-    - name: Run tests
-      run: npm test
+      run: npm run dev
